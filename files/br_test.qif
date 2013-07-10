@@ -1,0 +1,19 @@
+!Type:Bank
+D6/30'08
+T0.00
+CX
+POpening Balance
+L[HSBC Corrente]
+^
+D6/30'08
+CX
+Mremuneracao parcial
+T1,802.25
+PDell
+LRemuneracoes e ordenado
+^
+D7/17'08
+CX
+T1,500.00
+L[Santander PF]
+^
