@@ -1,0 +1,30 @@
+# encoding: utf-8
+
+class SpecialCharRemover
+  def self.clear(text)
+    text.gsub("á", "a")
+        .gsub("à", "a")
+        .gsub("ã", "a")
+        .gsub("â", "a")
+        .gsub("é", "e")
+        .gsub("ê", "e")
+        .gsub("í", "i")
+        .gsub("ó", "o")
+        .gsub("õ", "o")
+        .gsub("ô", "o")
+        .gsub("ú", "u")
+        .gsub("ç", "c")
+        .gsub("Á", "A")
+        .gsub("À", "A")
+        .gsub("Ã", "A")
+        .gsub("Â", "A")
+        .gsub("É", "E")
+        .gsub("Ê", "E")
+        .gsub("Í", "I")
+        .gsub("Ó", "O")
+        .gsub("Õ", "O")
+        .gsub("Ô", "O")
+        .gsub("Ú", "U")
+        .gsub("Ç", "C")
+  end
+end

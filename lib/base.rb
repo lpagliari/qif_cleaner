@@ -1,3 +1,3 @@
 $: << File.dirname(__FILE__)
 
-#require ''
+require 'special_char_remover'
