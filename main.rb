@@ -1,8 +1,9 @@
 require 'qif'
 require File.dirname(__FILE__) + '/lib/base'
 
-files = ['ddmmyy_dirty.qif']
-files.each do |file| 
+ARGV.each do |full_path_to_file|
+  file = File.basename(full_path_to_file)
+
   data = open("files/#{file}").read
 
   qif = BrQif.new(data).read
