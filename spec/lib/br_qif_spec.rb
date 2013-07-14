@@ -23,7 +23,6 @@ describe BrQif do
   context 'with a pt_BR transaction' do
     let(:transaction) do
       "D01/07/08"       << "\n" << # TODO should be "D1/7'08"
-      "T-189.62"        << "\n" <<
       "PÃbçdêfghí..."   << "\n" <<
       "LPresentes"      << "\n" <<
       "^"
@@ -39,6 +38,19 @@ describe BrQif do
 
     it 'should remove special chars' do
       subject.transactions[0].payee.should eq "Abcdefghi..."
+    end
+  end
+
+  context 'with a different data format' do
+    let(:transaction) do
+      "D07/01/2008" << "\n" <<
+      "^"
+    end
+
+    subject { described_class.new(pt_br_qif, "dd/mm/yyyy").read }
+
+    it 'should read transaction with correct date format' do
+      subject.transactions[0].date.should eq Time.mktime(2008, 1, 7)
     end
   end
 

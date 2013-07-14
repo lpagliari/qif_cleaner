@@ -1,13 +1,13 @@
 require 'qif'
 
 class BrQif
-  PT_BR_ACCOUNT_TYPE = '!Type:Banco'
-  EN_US_ACCOUNT_TYPE = '!Type:Bank'
-  DATE_FORMAT        = "mm/dd/yy" # TODO should be "m/d'yy"
+  PT_BR_ACCOUNT_TYPE  = '!Type:Banco'
+  EN_US_ACCOUNT_TYPE  = '!Type:Bank'
+  DEFAULT_DATE_FORMAT = "mm/dd/yy" # TODO should be "m/d'yy"
 
-  def initialize(data)
+  def initialize(data, date_format = DEFAULT_DATE_FORMAT)
     pt_br_data = translate_raw_pt_br_data(data)
-    @qif = Qif::Reader.new(pt_br_data, DATE_FORMAT)
+    @qif = Qif::Reader.new(pt_br_data, date_format)
 
     translate_categories
   end
