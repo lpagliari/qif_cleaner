@@ -8,10 +8,8 @@ class Category
   end
 
   def self.instance_of(original_name)
-    INSTANCES[original_name] || DEFAULT_CATEGORY
+    INSTANCES[original_name] || Category.new(original_name)
   end
-
-  DEFAULT_CATEGORY = Category.new('Miscellaneous')
 
   INSTANCES = {
     'Alimentacao'                                => Category.new('Personal:Groceries')  ,

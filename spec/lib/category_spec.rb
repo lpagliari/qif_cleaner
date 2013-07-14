@@ -138,7 +138,7 @@ describe Category do
     end
   end
 
-  it 'should get the default category when translating an unmapped category origin' do
-    Category.instance_of('Category not Found').translate.should eq 'Miscellaneous'
+  it 'should not change the category name when translating an unmapped category origin' do
+    Category.instance_of('Category not Found').translate.should eq 'Category not Found'
   end
 end
