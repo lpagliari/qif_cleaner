@@ -1,3 +1,4 @@
 source 'https://rubygems.org'
 
-gem 'qif'
+gem 'qif', :path => '../Qif'
+gem 'rspec'
