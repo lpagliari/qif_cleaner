@@ -9,7 +9,8 @@ ARGV.each do |full_path_to_file|
   qif = BrQif.new(data).read
 
   original_transactions = data.count("^")
-  puts "Transactions read for file '#{full_path_to_file}': #{qif.size} (out of #{original_transactions})"
+  percentage_read = 100 * qif.size / original_transactions
+  puts "[#{percentage_read}%] Transactions read for file '#{full_path_to_file}': #{qif.size} (out of #{original_transactions})"
 
   #qif.each do |transaction|
   #  puts [transaction.date, transaction.memo, transaction.amount, transaction.category, transaction.payee].join(', ')
