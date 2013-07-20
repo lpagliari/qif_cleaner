@@ -16,15 +16,27 @@ describe BrQif do
 
   subject { described_class.new(pt_br_qif).read }
 
-  it 'should create a QIF reader with transactions of file' do
+  it 'should create a QIF reader without any error' do
     subject.transactions.should eq []
+  end
+
+  context 'with a pt_br credit card account' do
+    let(:pt_br_credit_card_account_type) { "!Type:CartãoC" }
+
+    let(:pt_br_qif) do
+      pt_br_credit_card_account_type << "\n" <<
+      transaction                    << "\n"
+    end
+    it 'should create a QIF reader without any error' do
+      subject.transactions.should eq []
+    end
   end
 
   context 'with a pt_BR transaction' do
     let(:transaction) do
-      "D01/07/08"       << "\n" << # TODO should be "D1/7'08"
-      "PÃbçdêfghí..."   << "\n" <<
-      "LPresentes"      << "\n" <<
+      "D1/7'08"       << "\n" <<
+      "PÃbçdêfghí..." << "\n" <<
+      "LPresentes"    << "\n" <<
       "^"
     end
 
